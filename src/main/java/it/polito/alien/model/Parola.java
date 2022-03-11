@@ -1,15 +1,21 @@
 package it.polito.alien.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Parola {
 	
 	String pAliena;
 	String pUmana;
 	
+	Set<String> listaPUmane;
 	
-	public Parola(String pAliena, String pUmana) {
+	
+	public Parola(String pAliena, HashSet<String> hs) {
 		super();
 		this.pAliena = pAliena;
-		this.pUmana = pUmana;
+		this.listaPUmane = hs;
+		
 	}
 
 
@@ -19,8 +25,8 @@ public class Parola {
 
 
 
-	public String getpUmana() {
-		return pUmana;
+	public Set<String> getpUmana() {
+		return listaPUmane;
 	}
 
 

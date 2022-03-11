@@ -1,7 +1,9 @@
 package it.polito.tdp.alien;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import it.polito.alien.model.Parola;
 import javafx.event.ActionEvent;
@@ -43,12 +45,16 @@ public class FXMLController {
     	if(s.contains(" "))
     	{		//GESTISCO INSERIMENTO PAROLA
     		String array[] = s.split(" ");
-    		if(array.length>2)
+    		
+    		
+    		HashSet<String> lParole = new HashSet<String>();
+    		
+    		for(int i = 1;i<array.length;i++)
     		{
-    			txtArea.setText(txtArea.getText() + "\nFormato Errato");
-    			return;
+    			lParole.add(array[i]);
     		}
-    		lp.add(new Parola(array[0],array[1]));
+    		
+    		lp.add(new Parola(array[0], lParole));
     		System.out.println(array[0] + "       " + array[1]);		//DEBUGGING
     		return;
     		
@@ -59,7 +65,16 @@ public class FXMLController {
     	{
     		if(lp.get(i).getpAliena().compareTo(s)==0)
     		{
-    			txtArea.setText(txtArea.getText()+ "\n" + lp.get(i).getpUmana());
+    			
+    			ArrayList<String> ls = new ArrayList<String>(lp.get(i).getpUmana());
+    			
+    			
+    			for(int j = 0;j<ls.size();j++)
+    			{
+    				txtArea.setText(txtArea.getText()+ "\n" + ls.get(j));
+    			}
+    			
+    			
     			return;
     		}
     	}
