@@ -49,7 +49,7 @@ public class FXMLController {
     			return;
     		}
     		lp.add(new Parola(array[0],array[1]));
-    		System.out.println(array[0] + "       " + array[1]);
+    		System.out.println(array[0] + "       " + array[1]);		//DEBUGGING
     		return;
     		
     	}
